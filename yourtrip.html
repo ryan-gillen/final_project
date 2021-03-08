@@ -12,8 +12,8 @@
 <body>
     <div class="sign-in-or-sign-out"></div>
 
- <!--Clean up formatting below-->
- <!--Add Placeholders in the html-->
+
+<!--Reminder note to Add Placeholders in the html-->
 
     <div class="trip submission">
         <h> Trip name </h>
@@ -22,43 +22,77 @@
     <div class="description form">
         <p> Enter the description of your itinerary here</p>
         <form>
-            <input type="text"> </input>
-            <button>"bg-green-500"</button>
+            <input type="text" class="border"></input>
+            <button class="bg-green-500">Submit</button>
         </form>
+    </div>
 
-        <div class="link form">
-            <p> (Optional) Enter the link to your suggestion here </p>
-            <form>
-                <input type="text"> </input>
-                <button>"bg-green-500"</button>
-            </form>
+    <div class="link form">
+        <p> (Optional) Enter the link to your suggestion here </p>
+        <form>
+            <input type="text" class="border"> </input>
+            <button class="bg-green-500">Submit</button>
+        </form>
+    </div>
 
-            <div class="image form">
-                <p> (Optional) Enter the link to a photo of your suggestion here </p>
-                <form>
-                    <input type="text"> </input>
-                    <button>"bg-green-500"</button>
-                </form>
+    <div class="image form">
+        <p> (Optional) Enter the link to a photo of your suggestion here </p>
+        <form>
+            <input type="text" class="border"> </input>
+            <button class="bg-green-500">Submit</button>
+        </form>
+    </div>
 
-                <div class="flex">
-                    <p class="w-1/3 text-left">
-                        <a href="index.html"> Home</a>
-                        <!--check links work-->
-                    </p>
-                    <p class="w-1/3 text-center">
-                        <a href="yourtrip.html"> Your Trips</a>
-                        <!--check links work-->
-                    </p>
-                    <p class="w-1/3 text-right">
-                        <a href="signout.html"> Sign Out</a>
-                        <!--check links work-->
-                    </p>
+<!--START TO TRIP SUBMITTER INFORMATION - Need to determine where on page-->
+    <div class="submitter">
+        <h>Trip Submittor by: Submitter's name</h>
+    </div>
 
-                </div>
+<!--START TO LIKE AND DOWNLIKE BUTTONS - Need to determine where on page and how to format-->
+
+    <div class="trip vote">
+        <h>Trip Vote</h>
+    </div>
+
+    <div class="trip uplike">
+        <form>
+            <button> 👍 </button>
+                <p>Number of Votes: # </p>
+                <ul>
+                    <li>List of users that downvoted? </li>
+                </ul>
+        </form>
+    </div>
+
+    <div class="trip downlike">
+        <form>
+            <button> 👎 </button>
+                <p>Number of Votes: #</p>
+                <ul>
+                    <li>List of users that liked? </li>
+                </ul>
+        </form>
+    </div>
+
+<!--BOTTOM OF PAGE - LINKS TO OTHER PAGES-->
+    <div class="flex">
+        <p class="w-1/3 text-left">
+            <a href="index.html"> Home</a>
+             <!--check links work-->
+        </p>
+        <p class="w-1/3 text-center">
+            <a href="yourtrip.html"> Your Trips</a>
+             <!--check links work-->
+        </p>
+        <p class="w-1/3 text-right">
+            <a href="signout.html"> Sign Out</a>
+            <!--check links work-->
+        </p>
+    </div>
 
 
 
-
+<!--GIVEN FIREBASE CONFIG FORMAT FOR HTML-->
 
                 <!-- Put the Firebase config here -->
                 <!-- The core Firebase JS SDK is always required and must be listed first -->
