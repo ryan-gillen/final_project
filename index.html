@@ -9,44 +9,68 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
 </head>
 
-<body>
+<body class="bg-gradient-to-t from-green-50 to-green-300">
   <div class="sign-in-or-sign-out"></div>
 
   <!--Home Page-->
 
-  <div class= "welcome">
-    <h> Hi Alexandra! </h>
-  </div> 
-
-  <div class = "trip form">
-    <p> Enter your trip name here!</p> 
-    <form>
-        <input type= "text" class="border"> </input>
-        <button class ="bg-green-500"> Submit </button>
-    </form>
-  </div> 
-
-  <!--Buttom of Page with Page Links-->
-
-  <div class = "flex"> 
-    <p class = "w-1/3 text-left">
-        <a href = "index.html"> Home</a>
-        <!--check links work-->
-    </p>
-    <p class = "w-1/3 text-center">
-      <a href = "yourtrip.html"> Your Trips</a>
-      <!--check links work-->
-    </p>
-    <p class = "w-1/3 text-right">
-      <a href = "signout.html"> Sign Out</a> 
-      <!--check links work-->
-    </p>
-  
+  <div class="welcome bg-gray-800">
+    <h class="p-10 text-gray-200 text-lg font-monospace"> Hey Alexandra!</h>
   </div>
-  
+  <br>
+  <br>
+  <div>
+    <h class="p-20 text-gray-800 text-xl font-serif "> Choose your trip below!</h>
+  </div>
 
-<!--  New post form - FORMAT SAMPLE FOR REFERENCE FROM KELLOGRAM-->
-<!-- <div>
+  <br>
+
+  <div class="md: flex font-serif">
+    <!--add hrefs when we make the page to paris image and name-->
+    <div class="trip 1 w-1/2 p-10 text-center text-gray-800 font-bold">
+      <img class="object-contain h-80 width-90 rounded-full"
+        src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iEvgCaMpO5ns/v0/800x-1.jpg">
+      <a>Paris</a>
+    </div>
+
+    <div class="trip 2 w-1/2 p-10 text-center text-gray-800 font-bold hover:text-pink-800">
+      <a href="yourtrip.html">
+        <img class="object-contain h-80 width-90 rounded-full"
+          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/f6/82/73/photo0jpg.jpg?w=700&h=500&s=1">
+      </a>
+      <a href="yourtrip.html">Puerto Escondido</a>
+    </div>
+
+  </div>
+
+
+
+  <!-- <form>
+    <input type= "text" class="border"> </input>
+    <button class ="bg-green-500"> Submit </button>
+</form> -->
+  <!--Buttom of Page with Page Links-->
+<br>
+<br>
+  <div class="flex text-gray-400 bg-gray-900">
+    <p class="w-1/3 m-8 text-left hover:text-pink-900">
+      <a href="index.html"> Home</a>
+      <!--check links work-->
+    </p>
+    <p class="w-1/3 m-8 text-center hover:text-pink-900">
+      <a href="yourtrip.html"> Your Trips</a>
+      <!--check links work-->
+    </p>
+    <p class="w-1/3 m-8 text-right hover:text-pink-900">
+      <a href="signout.html"> Sign Out</a>
+      <!--check links work-->
+    </p>
+
+  </div>
+
+
+  <!--  New post form - FORMAT SAMPLE FOR REFERENCE FROM KELLOGRAM-->
+  <!-- <div>
   <form class="w-full mt-8">
     <input type="text" id="image-url" name="image-url" placeholder="Image URL" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-purple-500 focus:border-purple-500">
     <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl">Post</button>
@@ -56,7 +80,7 @@
 
 
 
- 
+
   <!-- Put the Firebase config here -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
