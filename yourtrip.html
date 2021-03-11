@@ -14,31 +14,31 @@
 
 
 <!-- PAGE HEADER-->
-    <div class="page header font-bold text-xl"> 
+    <div class="page header font-bold text-xl p-2"> 
         <h>Trip Itinerary Ideas for XXX</h> <!--enter code for trip name-->
     </div>
     
 
 <!-- "Template" Itinerary component -->
 
-    <div class="template description">
+    <div class="template description p-2">
         <p>Casa De Olas</p>
     </div>
 
-    <div class="template link">
+    <div class="template link p-2">
         <a href="https://www.casadeolashotel.com">https://www.casadeolashotel.com</a>
     </div>
 
-    <div class="template image">
+    <div class="template image p-2">
         <img src = "https://images.squarespace-cdn.com/content/v1/5c13d7a2c258b4e06d57a039/1567739481093-APNHHN42ERYMA1O0MWKI/ke17ZwdGBToddI8pDm48kCwssBL47iKvvxgxnOHY9ZUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcNp6pml_-vTDnzgO2pAWLRgSMpM1BHELTfAMzsBtCMEvdHOeLVYILCzUSqDZMV_Tq/IMG_5656.jpeg?format=300w">
+    </div>
+
+    <div class="template submitter p-2 italic">
+        <p>Submitted by: Alexandra</p>
     </div>
   
 
 <!--Reminder note to Add Placeholders in the html-->
-
-    <div class="trip submission">
-        <h> Trip name </h>
-    </div>
 
     <div class="description form m-8">
         <p> Enter the description of your itinerary here</p>
@@ -64,10 +64,21 @@
         </form>
     </div>
 
-<!--START TO TRIP SUBMITTER INFORMATION - Need to determine where on page-->
+    <div class="Submitter's Name form m-8">
+        <p> Enter your name here </p>
+        <form>
+            <input type="text" class="border"> </input>
+            <button class="bg-green-500">Submit</button>
+        </form>
+    </div>
+
+<!--START TO TRIP SUBMITTER INFORMATION - Need to determine where on page 
+    THINK WE CAN DELETE BUT COMMENTING OUT FOR NOW 
     <div class="submitter">
         <h>Trip Submittor by: Submitter's name</h>
     </div>
+    -->
+
 
 <!--START TO LIKE AND DOWNLIKE BUTTONS - Need to determine where on page and how to format-->
 
@@ -80,7 +91,7 @@
             <button> 👍 </button>
                 <p>Number of Votes: # </p>
                 <ul>
-                    <li>List of users that downvoted? </li>
+                    <li>List of users that liked? </li>
                 </ul>
         </form>
     </div>
@@ -90,7 +101,7 @@
             <button> 👎 </button>
                 <p>Number of Votes: #</p>
                 <ul>
-                    <li>List of users that liked? </li>
+                    <li>List of users that downvoted </li>
                 </ul>
         </form>
     </div>
