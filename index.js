@@ -9,7 +9,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
     // Signed in
     console.log('signed in')
 
-  //CODE ADDED 3.10 & 3/12 - LEVERAGED Week 7 LAB for reference
+
+//CODE ADDED 3.10 & 3/12 - LEVERAGED Week 7 LAB for reference
 
   // AK ADDED 3.12 NOT GIVEN IN STARTER CODE
   // Ensures the signed-in user is in the users collection - NOT SURE IF IT IS NEEDED 
@@ -54,6 +55,19 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
   //Render ideas when the page it loaded - ADDED AK 3.12
   let querySelector = await db.collection('ideas').orderBy('created').get()
+  let posts = querySnapshot.docs
+  for (let i=0; i<ideas.length; i++) {
+    let ideaId = ideas[i].id
+    let ideaData = ideas[i].data()
+    let description = ideaData.description
+    let link = ideaData.link
+    let image = ideaData.image
+    let submitter = ideaData.submitter
+    let numberupvotes = ideaData.upvotes
+    let numberdownvotes = ideaData.downvotes
+    renderIdea(ideaId, description, link, image, submitter, numberupvotes, numberdownvotes)
+
+  }
 
 
 
