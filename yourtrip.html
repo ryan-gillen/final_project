@@ -37,11 +37,11 @@
             <img src = "https://images.squarespace-cdn.com/content/v1/5c13d7a2c258b4e06d57a039/1567739481093-APNHHN42ERYMA1O0MWKI/ke17ZwdGBToddI8pDm48kCwssBL47iKvvxgxnOHY9ZUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcNp6pml_-vTDnzgO2pAWLRgSMpM1BHELTfAMzsBtCMEvdHOeLVYILCzUSqDZMV_Tq/IMG_5656.jpeg?format=300w">
         </div>
 
-        <div id="template submitter" class="p-2 italic">
+        <div id="template-submitter" class="p-2 italic">
             <p>Submitted by: Alexandra</p>
         </div>
 
-        <div class="trip vote p-2">
+        <div class="template-tripvote p-2">
             <form>
                 <button>  👍   </button> <a id="number-upvotes">  5 </a><button>  👎  </button><a id="number-downvotes"> 2 </a>
             <!--show # of likes and downlikes when incremented--> 
@@ -56,7 +56,7 @@
 
     <div class="form font-serif">
 
-        <div class="description form m-8">
+        <div class="descriptionform m-8">
             <p> Enter the description of your itinerary here</p>
             <form>
                 <input type="text" class="border"></input>
@@ -64,7 +64,7 @@
             </form>
         </div>
 
-        <div class="link form m-8">
+        <div class="linkform m-8">
             <p> (Optional) Enter the link to your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
@@ -72,7 +72,7 @@
             </form>
         </div>
 
-        <div class="image form m-8">
+        <div class="imageform m-8">
             <p> (Optional) Enter the link to a photo of your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
@@ -80,7 +80,7 @@
             </form>
         </div>
 
-        <div class="Submitter's Name form m-8">
+        <div class="submittername form m-8">
             <p> Enter your name here </p>
             <form>
                 <input type="text" class="border"> </input>
@@ -91,30 +91,29 @@
     </div>
 
     <!-- FORMATTING FOR SUBMITTED Itinerary Idea - NEED TO MAKE DYNAMIC and loop submissions through this-->
+    <!-- UPDATED TO ids insteas of classes-->
 
     <div class="Submitted Itinerary Ideas Format">
 
-        <div class="description p-2">
+        <div id="description" class="p-2">
             <p> </p>
          </div>
 
-         <div class="link p-2">
+         <div id="link" class="p-2">
             <a href> </a>
         </div>
 
-        <div class="image p-2">
+        <div id="image" class="p-2">
             <img src =>
         </div>
 
-        <div class="submitter p-2 italic">
+        <div id="submitter" class="p-2 italic">
             <p> </p>
         </div>
 
-        <div class="trip vote p-2">
+        <div class="tripvote p-2">
             <form>
-                <button> </button> <button> </button>
-            <!--show # of likes and downlikes when incremented--> 
-            <!--how can we show who liked and who downvoted?-->
+                <button>  </button> <a id="number-upvotes">  </a><button>  </button><a id="number-downvotes"> </a>
             </form>
         </div>
 

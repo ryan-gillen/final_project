@@ -1,3 +1,7 @@
+//NOT GIVEN 
+let db = firebase.firestore()
+
+//STARTER CODE
 firebase.auth().onAuthStateChanged(async function(user) {
 
 
@@ -5,8 +9,16 @@ firebase.auth().onAuthStateChanged(async function(user) {
     // Signed in
     console.log('signed in')
 
+  //CODE ADDED 3.10 & 3/12 - LEVERAGED Week 7 LAB for reference
 
-    // ADDING SIGNOUT BUTTON - AK ADDED 3.10 (NOT GIVEN IN STARTER CODE)
+  // AK ADDED 3.12 NOT GIVEN IN STARTER CODE
+  // Ensures the signed-in user is in the users collection - NOT SURE IF IT IS NEEDED 
+    db.collection('users').doc(user.uid).set({
+      name: user.displayName,
+      email: user.email
+        })
+
+    // ADDING SIGNOUT BUTTON - AK ADDED 3.10 
     document.querySelector('.sign-in-or-sign-out').innerHTML = `
       <button class="text-blue-500 underline sign-out">Sign Out</button>
     `
@@ -16,6 +28,32 @@ firebase.auth().onAuthStateChanged(async function(user) {
       document.location.href = 'index.html'
     })
 
+    // Listen for the form submit and create/render the new post - ADDED AK 3.12
+     document.querySelector('form').addEventListener('submit', async function(event) {
+      event.preventDefault()
+      let description = document.querySelector('#description').value
+      let link = document.querySelector('#link').value
+      let image = document.querySelector('#image').value
+      let submitter = document.querySelector('#submitter').value
+      let numberupvotes = 0
+      let numberdownvotes = 0
+      let docRef = await db.collection('ideas').add({ 
+        ideadescription: description, 
+        idealink: link, 
+        ideaimage: image,
+        ideasubmitter: submitter,
+        upvotes: 0,
+        downvotes: 0, 
+        created: firebase.firestore.FieldValue.serverTimestamp()
+      })
+
+    //newly created documents - ADDED AK 3.12
+      letideaID = docRef.id 
+      renderIdea(ideaId, description, link, image, submitter, numberupvotes, numberdownvotes)
+    })
+
+  //Render ideas when the page it loaded - ADDED AK 3.12
+  let querySelector = await db.collection('ideas').orderBy('created').get()
 
 
 
@@ -27,8 +65,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
 
 
-
-
+// STARTER CODE 
 
   } else {
     // Signed out
