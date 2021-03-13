@@ -1,7 +1,20 @@
+let db = firebase.firestore()
+
 firebase.auth().onAuthStateChanged(async function(user) {
+  //console.log (user.displayName)
+
+
+
+
+
   if (user) {
     // Signed in
     console.log('signed in')
+
+    db.collection('users').doc(user.uid).set({
+      name: user.displayName,
+      email: user.email
+    })
 
     // Sign-out button
     document.querySelector('.sign-in-or-sign-out').innerHTML = `
