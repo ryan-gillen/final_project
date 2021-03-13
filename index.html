@@ -12,6 +12,14 @@
 <body class="bg-gradient-to-t from-green-50 to-green-300">
   <div class="sign-in-or-sign-out"></div>
 
+  <div>
+    <form class="w-full mt-8">
+      <!-- <input type="text" id="username" name="username" placeholder="Username" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-purple-500 focus:border-purple-500"> -->
+      <!-- <input type="text" id="image-url" name="image-url" placeholder="Image URL" class="my-2 p-2 w-64 border border-gray-400 rounded shadow-xl focus:outline-none focus:ring-purple-500 focus:border-purple-500">
+      <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl">Post</button> -->
+    </form>
+  </div>
+
   <!--Home Page-->
 
   <div class="welcome bg-gray-800">
@@ -83,14 +91,25 @@
 
   <!-- Put the Firebase config here -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script> -->
+
   <!-- Firebase Auth -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script> -->
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
 
   <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {} // replace
+    var firebaseConfig = {
+    apiKey: "AIzaSyDXPYkTmzZCg8QlCOY_1nnSEe-61cy3V0A",
+    authDomain: "kiei-451-final-project.firebaseapp.com",
+    projectId: "kiei-451-final-project",
+    storageBucket: "kiei-451-final-project.appspot.com",
+    messagingSenderId: "141223762459",
+    appId: "1:141223762459:web:de917f4bfaec55705c36be"
+    };
+    
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>

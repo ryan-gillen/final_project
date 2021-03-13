@@ -1,3 +1,5 @@
+//let db = firebase.firestore()
+
 firebase.auth().onAuthStateChanged(async function(user) {
 
 
@@ -5,6 +7,11 @@ firebase.auth().onAuthStateChanged(async function(user) {
     // Signed in
     console.log('signed in')
 
+    // RG: Ensure the signed-in user is in the users collection (not sure if we'll need this in the end?)
+    db.collection('users').doc(user.uid).set({
+      name: user.displayName,
+      email: user.email
+    })
 
     // ADDING SIGNOUT BUTTON - AK ADDED 3.10 (NOT GIVEN IN STARTER CODE)
     document.querySelector('.sign-in-or-sign-out').innerHTML = `
@@ -39,6 +46,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
     // Initializes FirebaseUI Auth
     let ui = new firebaseui.auth.AuthUI(firebase.auth())
+    //console.log ('firebase new auth success')
 
     // FirebaseUI configuration
     let authUIConfig = {
@@ -47,8 +55,12 @@ firebase.auth().onAuthStateChanged(async function(user) {
       ],
       signInSuccessUrl: 'index.html'
     }
+    //console.log ('firebase auth config sucess')
+    
 
     // Starts FirebaseUI Auth
     ui.start('.sign-in-or-sign-out', authUIConfig)
+    console.log ('start firebaseUI auth success')
+
   }
 })
