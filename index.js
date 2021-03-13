@@ -1,4 +1,4 @@
-//NOT GIVEN 
+//NOT GIVEN IN STARTER CODE
 let db = firebase.firestore()
 
 //STARTER CODE
@@ -10,9 +10,10 @@ firebase.auth().onAuthStateChanged(async function(user) {
     console.log('signed in')
 
 
-//CODE ADDED 3.10 & 3/12 - LEVERAGED Week 7 LAB for reference
+//CODE ADDED 3.10 & 3/12 - LEVERAGED WEEK 7 LAB for reference
+//NOT GIVEN IN STARTER CODE
 
-  // AK ADDED 3.12 NOT GIVEN IN STARTER CODE
+  // AK ADDED 3.12 
   // Ensures the signed-in user is in the users collection - NOT SURE IF IT IS NEEDED 
     db.collection('users').doc(user.uid).set({
       name: user.displayName,
@@ -70,23 +71,17 @@ firebase.auth().onAuthStateChanged(async function(user) {
   }
 
 
-
-
-
-
-
-
-
-
-
 // STARTER CODE 
 
   } else {
     // Signed out
     console.log('signed out')
 
-    //HIDE FROM WHEN SIGNED-OUT- AK ADDED 3.10 (NOT GIVEN IN STARTER CODE)
+    //HIDE FROM WHEN SIGNED-OUT- AK ADDED 3.10 
+    //NOT GIVEN IN STARTER CODE)
     document.querySelector('form').classList.add('hidden')
+
+  //STATER CODE 
 
     // Initializes FirebaseUI Auth
     let ui = new firebaseui.auth.AuthUI(firebase.auth())
@@ -103,3 +98,46 @@ firebase.auth().onAuthStateChanged(async function(user) {
     ui.start('.sign-in-or-sign-out', authUIConfig)
   }
 })
+
+//NOT GIVEN IN STARTER CODE - 3/12 AK - NEED TO PLAY AROUND WITH THIS MORE 
+//how do we show the right description, link, image, smubittor,vote - do we link to the ID??? 
+//For EXAMPLE - ${ideaID}-${description} ??
+
+async function renderIdea(ideaId, description, link, image, submitter, numberupvotes, numberdownvotes) {
+  document.querySelector('.Submitted').insertAdjacentHTML('beforeend', `
+  <div id="description" class="p-2">
+  <p>$${description}</p>
+</div>
+
+<div id="link" class="p-2">
+  <a href>${link}</a>
+</div>
+
+<div id="image" class="p-2">
+  <img src = ${image}> 
+</div>
+
+<div id="submitter" class="p-2 italic">
+  <p>${submitter}</p>
+</div>
+
+<div class="tripvote p-2">
+  <form>
+      <button> 👍  </button> <a id="${numberupvotes}">  </a><button> 👎  </button><a id="${numberdownvotes}"> </a>
+  </form>
+</div>`
+  )
+
+
+//   document.querySelector(`.post-${postId} .like-button`).addEventListener('click', async function(event) {
+//     event.preventDefault()
+//     console.log(`post ${postId} like button clicked!`)
+//     let existingNumberOfLikes = document.querySelector(`.post-${postId} .likes`).innerHTML
+//     let newNumberOfLikes = parseInt(existingNumberOfLikes) + 1
+//     document.querySelector(`.post-${postId} .likes`).innerHTML = newNumberOfLikes
+//     await db.collection('posts').doc(postId).update({
+//       likes: firebase.firestore.FieldValue.increment(1)
+//     })
+//   })
+
+  }
