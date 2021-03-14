@@ -60,7 +60,6 @@
             <p> Enter the description of your itinerary here</p>
             <form>
                 <input type="text" class="border"></input>
-                <button class="text-gray-200 bg-gray-900">Submit</button>
             </form>
         </div>
 
@@ -68,7 +67,6 @@
             <p> (Optional) Enter the link to your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
-                <button class="text-gray-200 bg-gray-900">Submit</button>
             </form>
         </div>
 
@@ -76,46 +74,40 @@
             <p> (Optional) Enter the link to a photo of your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
-                <button class="text-gray-200 bg-gray-900">Submit</button>
             </form>
         </div>
 
-        <div class="submittername form m-8">
-            <p> Enter your name here </p>
-            <form>
-                <input type="text" class="border"> </input>
-                <button class="text-gray-200 bg-gray-900">Submit</button>
-            </form>
-        </div>
+        <button class="text-gray-200 bg-gray-900 m-8">Submit</button>
 
     </div>
 
     <!-- FORMATTING FOR SUBMITTED Itinerary Idea - NEED TO MAKE DYNAMIC and loop submissions through this-->
-    <!-- UPDATED TO ids insteas of classes-->
+    <!-- UPDATED TO ids instead of classes-->
+    <!-- TRIED TO MAKE DYNAMIC, moved it to JS -AK -->
 
     <div class="Submitted Itinerary Ideas Format">
-
+<!-- 
         <div id="description" class="p-2">
-            <p> </p>
+            <p> ${posts.description} </p>
          </div>
 
          <div id="link" class="p-2">
-            <a href> </a>
+            <a href = "${posts.url}"> </a>
         </div>
 
         <div id="image" class="p-2">
-            <img src =>
+            <img src ="${posts.imageUrl}" >
         </div>
 
         <div id="submitter" class="p-2 italic">
-            <p> </p>
+            <p> ${users.name} </p>
         </div>
 
         <div class="tripvote p-2">
             <form>
                 <button>  </button> <a id="number-upvotes">  </a><button>  </button><a id="number-downvotes"> </a>
             </form>
-        </div>
+        </div> -->
 
     </div>
 

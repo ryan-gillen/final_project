@@ -16,6 +16,10 @@ firebase.auth().onAuthStateChanged(async function(user) {
       email: user.email
     })
 
+    //WELCOME USER NAME (WHEN SIGNED IN) - ADDED AK
+    let welcome = document.querySelector('.welcome')
+    welcome.insertAdjacentHTML('beforeend',`<h class="p-10 text-gray-200 text-lg font-monospace"> Hey ${user.displayName}!</h>`)
+
     // Sign-out button
     document.querySelector('.sign-in-or-sign-out').innerHTML = `
       <button class="text-pink-500 underline sign-out">Sign Out</button>
@@ -26,23 +30,58 @@ firebase.auth().onAuthStateChanged(async function(user) {
       document.location.href = 'index.html'
     })
 
+
+  //THIS THE COPY FROM KELLOGRAM FOR REFERENCE 
+  //ATTEMPTED TO RECREATE THIS CODE BELOW -AK
+
     // Listen for the form submit and create/render the new post
-    document.querySelector('form').addEventListener('submit', async function(event) {
-      event.preventDefault()
-      let postUsername = user.displayName
-      let postImageUrl = document.querySelector('#image-url').value
-      let response = await fetch('/.netlify/functions/create_post', {
-        method: 'POST',
-        body: JSON.stringify({
-          userId: user.uid,
-          username: postUsername,
-          imageUrl: postImageUrl
+
+    // document.querySelector('form').addEventListener('submit', async function(event) {
+    //   event.preventDefault()
+    //   let postUsername = user.displayName
+    //   let postImageUrl = document.querySelector('#image-url').value
+    //   let response = await fetch('/.netlify/functions/create_post', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //       userId: user.uid,
+    //       username: postUsername,
+    //       imageUrl: postImageUrl
+    //     })
+    //   })
+    //   let post = await response.json()
+    //   document.querySelector('#image-url').value = '' // clear the image url field
+    //   renderPost(post)
+    // })
+
+      // Listen for the form submit and create/render the new post
+
+      document.querySelector('.form').addEventListener('submit', async function(event) {
+        event.preventDefault()
+        let postUsername = user.displayName
+        let postDescription = document.querySelector('#descriptionform').value
+        let postLink = document.querySelector('#linkform').value
+        let postImageUrl = document.querySelector('#imageform').value
+        let response = await fetch('/.netlify/functions/create_post', {
+          method: 'POST',
+          body: JSON.stringify({
+            userId: user.uid,
+            username: postUsername,
+            description: postDescription,
+            url: postImageUrl,
+            imageUrl: postImageUrl
+          })
         })
+  
+        let post = await response.json()
+        document.querySelector('#descriptionform').value = '' 
+        document.querySelector('#linkform').value = '' 
+        document.querySelector('#imageform').value = '' // clear the image url field
+  
+        renderPost(post)
       })
-      let post = await response.json()
-      document.querySelector('#image-url').value = '' // clear the image url field
-      renderPost(post)
-    })
+
+
+    // FROM KELLOGRAM - MADE NO UPDATES 
 
     let response = await fetch('/.netlify/functions/get_posts')
     let posts = await response.json()
@@ -50,6 +89,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
       let post = posts[i]
       renderPost(post)
     }
+
   } else {
     // Signed out
     console.log('signed out')
@@ -73,6 +113,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
   }
 })
 
+//THIS WAS COMMENTED OUT IN KELLOGRAM CODE - 
 // given a single post Object, render the HTML and attach event listeners
 // expects an Object that looks similar to:
 // {
@@ -85,32 +126,70 @@ firebase.auth().onAuthStateChanged(async function(user) {
 //     { username: 'ben', text: 'fake news' }
 //   ]
 // }
+
+
+//THIS IS THE COPY FROM KELLOGRAM FOR REFERENCE 
+//ATTEMPTED TO RECREATE THIS CODE BELOW -AK
+
+// async function renderPost(post) {
+//   let postId = post.id
+//   document.querySelector('.posts').insertAdjacentHTML('beforeend', `
+//     <div class="post-${postId} md:mt-16 mt-8 space-y-8">
+//       <div class="md:mx-0 mx-4">
+//         <span class="font-bold text-xl">${post.username}</span>
+//       </div>
+
+//       <div>
+//         <img src="${post.imageUrl}" class="w-full">
+//       </div>
+
+//       <div class="text-3xl md:mx-0 mx-4">
+//         <button class="like-button">❤️</button>
+//         <span class="likes">${post.likes}</span>
+//       </div>
+
+//       <div class="comments text-sm md:mx-0 mx-4 space-y-2">
+//         ${renderComments(post.comments)}
+//       </div>
+
+//       <div class="w-full md:mx-0 mx-4">
+//         ${renderCommentForm()}
+//       </div>
+//     </div>
+//   `)
+
 async function renderPost(post) {
   let postId = post.id
-  document.querySelector('.posts').insertAdjacentHTML('beforeend', `
-    <div class="post-${postId} md:mt-16 mt-8 space-y-8">
-      <div class="md:mx-0 mx-4">
-        <span class="font-bold text-xl">${post.username}</span>
-      </div>
-
-      <div>
-        <img src="${post.imageUrl}" class="w-full">
-      </div>
-
-      <div class="text-3xl md:mx-0 mx-4">
-        <button class="like-button">❤️</button>
-        <span class="likes">${post.likes}</span>
-      </div>
-
-      <div class="comments text-sm md:mx-0 mx-4 space-y-2">
-        ${renderComments(post.comments)}
-      </div>
-
-      <div class="w-full md:mx-0 mx-4">
-        ${renderCommentForm()}
-      </div>
+  document.querySelector('.submitted').insertAdjacentHTML('beforeend', `
+    <div id="description" class="p-2">
+      <p> ${posts.description} </p>
     </div>
-  `)
+
+    <div id="link" class="p-2">
+      <a href = "${posts.url}"> </a>
+    </div>
+
+    <div id="image" class="p-2">
+      <img src ="${posts.imageUrl}" >
+    </div>
+
+    <div id="submitter" class="p-2 italic">
+      <p> ${users.name} </p>
+    </div>
+
+    <div class="triplikes-2">
+    <form>
+      <button>  👍   </button> ${posts.likes}
+    </form>
+
+    <div class="tripunlikes-2">
+    <form>
+      <button> 👎  </button> ${posts.unlikes}
+    </form>
+
+    </div>
+    `)
+
 
   // listen for the like button on this post
   let likeButton = document.querySelector(`.post-${postId} .like-button`)
