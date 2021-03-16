@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
             userId: user.uid,
             username: postUsername,
             description: postDescription,
-            url: postImageUrl,
+            url: postLink,
             imageUrl: postImageUrl
           })
         })
