@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.css" />
+</head>
+
+<body class="bg-gradient-to-t from-green-50 to-green-300"></body>
+    <div class="sign-in-or-sign-out"></div>
+
+<!--REMINDER TO UPDATE ALL PLACEHOLDERS IN HTML WITH DYNAMIC CODE-->
+
+<!-- PAGE HEADER-->
+    <div class="page header text-lg font-monospace text-gray-200 p-2 bg-gray-800"> 
+        <h>Trip Itinerary Ideas for Paris</h> <!--enter code for trip name-->
+    </div>
+    
+
+    <!-- "Template" Itinerary component -->
+    <!--WILL TAKE THIS OUT ONCE DATA In FIRESTORE IS CALLED, hard coded for now visualization -AK -->
+
+    <div class="Trip Itinerary Item format font-serif">
+
+        <div id = "template-description" class="p-2">
+            <p>Le Bristol Paris/p>
+         </div>
+         <div id = "template-link" class="p-2">
+            <a href="https://www.oetkercollection.com/fr/hotels/le-bristol-paris">https://www.oetkercollection.com/fr/hotels/le-bristol-paris</a>
+        </div>
+
+        <div id= "template-image" class="p-2">
+            <img src = "https://www.oetkercollection.com/media/42091/le_bristol_paris_facade_2020_1_1879.jpg?anchor=center&mode=crop&quality=85&width=472&height=328&rnd=132576132020000000">
+        </div>
+
+        <div id="template-submitter" class="p-2 italic">
+            <p>Submitted by: Alexandra</p>
+        </div>
+
+        <div class="template-tripvote p-2">
+            <form>
+                <button>  👍   </button> <a id="number-upvotes">  5 </a><button>  👎  </button><a id="number-downvotes"> 2 </a>
+            </form>
+        </div>
+
+    </div>
+
+
+<!--FORMATTING FOR FORM-->
+
+    <div class="form font-serif">
+
+        <div class="descriptionform m-8">
+            <p> Enter the description of your itinerary here</p>
+            <form>
+                <input type="text" class="border"></input>
+            </form>
+        </div>
+
+        <div class="linkform m-8">
+            <p> (Optional) Enter the link to your suggestion here </p>
+            <form>
+                <input type="text" class="border"> </input>
+            </form>
+        </div>
+
+        <div class="imageform m-8">
+            <p> (Optional) Enter the link to a photo of your suggestion here </p>
+            <form>
+                <input type="text" class="border"> </input>
+            </form>
+        </div>
+
+        <button class="text-gray-200 bg-gray-900 m-8">Submit</button>
+
+    </div>
+
+    <!-- FORMATTING FOR SUBMITTED Itinerary Idea -->
+    <!-- TRIED TO MAKE DYNAMIC and moved it to index.js -AK
+    ** WILL NOW NEED TO BE MOVED to yourtrips.js - AK 3.16 -->
+
+    <div class="Submitted Itinerary Ideas Format">
+<!-- 
+        <div id="description" class="p-2">
+            <p> ${posts.description} </p>
+         </div>
+
+         <div id="link" class="p-2">
+            <a href = "${posts.url}"> </a>
+        </div>
+
+        <div id="image" class="p-2">
+            <img src ="${posts.imageUrl}" >
+        </div>
+
+        <div id="submitter" class="p-2 italic">
+            <p> ${users.name} </p>
+        </div>
+
+        <div class="tripvote p-2">
+            <form>
+                <button>  </button> <a id="number-upvotes">  </a><button>  </button><a id="number-downvotes"> </a>
+            </form>
+        </div> -->
+
+    </div>
+
+  
+<!--BOTTOM OF PAGE - LINKS TO OTHER PAGES-->
+
+<div class="flex text-gray-400 bg-gray-900">
+  
+    <p class="w-1/3 m-8 text-left hover:text-pink-900">
+      <a href="index.html"> Home</a>
+      <!--check links work -->
+    </p>
+
+    <p class="w-1/3 m-8 text-center">
+    </p>
+
+    <p class="sign-in-or-sign-out">
+    </p>
+      
+  </div>
+
+
+
+<!--GIVEN FIREBASE CONFIG FORMAT FOR HTML-->
+
+                <!-- Put the Firebase config here -->
+                <!-- The core Firebase JS SDK is always required and must be listed first -->
+                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+                <!-- Firebase Auth -->
+                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+
+                <script>
+                    // Your web app's Firebase configuration
+                    var firebaseConfig = {} // replace
+                    // Initialize Firebase
+                    firebase.initializeApp(firebaseConfig);
+                </script>
+                <script src="index.js"></script>
+</body>
+
+</html>
+
+    
