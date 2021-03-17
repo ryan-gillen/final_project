@@ -8,10 +8,10 @@ firebase.auth().onAuthStateChanged(async function(user) {
     // Signed in
     console.log('signed in')
 
-    db.collection('users').doc(user.uid).set({
-      name: user.displayName,
-      email: user.email
-    })
+    // db.collection('users').doc(user.uid).set({
+    //   name: user.displayName,
+    //   email: user.email
+    // })
 
     //WELCOME USER NAME (WHEN SIGNED IN) - ADDED AK
     let welcome = document.querySelector('.welcome')
@@ -81,7 +81,11 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
     // FROM KELLOGRAM - MADE NO UPDATES 
 
+    console.log('pre netlify call')
+
     // let response = await fetch('/.netlify/functions/get_posts')
+    // console.log('get_posts called successfully')
+
     // let posts = await response.json()
     // for (let i=0; i<posts.length; i++) {
     //   let post = posts[i]
@@ -93,8 +97,30 @@ firebase.auth().onAuthStateChanged(async function(user) {
     let destinationPoints = await response.json()
     for (let i=0; i<destinationPoints.length; i++) {
       let destinationPoint = destinationPoints[i]
+      console.log(destinationPoint)
       renderDestinationPoint(destinationPoint)
+
+      console.log(destinationPoint.id)
+
+      document.querySelector(`.destination-${destinationPoint.classId}`).addEventListener('click', async function(event) {
+        console.log('destination clicked')
+
+        if (destinationPoint.id == 'Paris') { 
+          document.location.href = 'paris.html'
+
+        } else if (destinationPoint.id == 'Puerto Escondido') {
+          document.location.href = 'puertoescondido.html'
+
+        } else {
+          alert ('destination not found')
+        }
+
+        
+      })
+
     }
+
+
 
 
   } else {
@@ -120,64 +146,23 @@ firebase.auth().onAuthStateChanged(async function(user) {
   }
 })
 
-//THIS WAS COMMENTED OUT IN KELLOGRAM CODE - 
-// given a single post Object, render the HTML and attach event listeners
-// expects an Object that looks similar to:
-// {
-//   id: 'abcdefg',
-//   username: 'brian',
-//   imageUrl: 'https://images.unsplash.com/...',
-//   likes: 12,
-//   comments: [
-//     { username: 'brian', text: 'i love tacos!' },
-//     { username: 'ben', text: 'fake news' }
-//   ]
-// }
-
-
-//THIS IS THE COPY FROM KELLOGRAM FOR REFERENCE 
-//ATTEMPTED TO RECREATE THIS CODE BELOW -AK
-
-// async function renderPost(post) {
-//   let postId = post.id
-//   document.querySelector('.posts').insertAdjacentHTML('beforeend', `
-//     <div class="post-${postId} md:mt-16 mt-8 space-y-8">
-//       <div class="md:mx-0 mx-4">
-//         <span class="font-bold text-xl">${post.username}</span>
-//       </div>
-
-//       <div>
-//         <img src="${post.imageUrl}" class="w-full">
-//       </div>
-
-//       <div class="text-3xl md:mx-0 mx-4">
-//         <button class="like-button">❤️</button>
-//         <span class="likes">${post.likes}</span>
-//       </div>
-
-//       <div class="comments text-sm md:mx-0 mx-4 space-y-2">
-//         ${renderComments(post.comments)}
-//       </div>
-
-//       <div class="w-full md:mx-0 mx-4">
-//         ${renderCommentForm()}
-//       </div>
-//     </div>
-//   `)
 
 
   //RG (3/15/21): 
-  async function renderPost(destinationPoint) {
+  async function renderDestinationPoint(destinationPoint) {
     //let destinationId = destinationPoint.id
     document.querySelector('.trips').insertAdjacentHTML('beforeend', `
 
-      <div class="trip-${destinationPoint.id} w-1/2 p-10 text-center text-gray-800 font-bold hover:text-pink-800">
+      <div class="w-1/2 p-10 text-center text-gray-800 font-bold hover:text-pink-800">
 
-        <a href="${destinationPoint.id}.html">
+
+
           <img class="object-contain h-80 width-90 rounded-full"
             src="${destinationPoint.imageUrl}">
-        </a>
-        <a href="${destinationPoint.id}.html">${destinationPoint.imageUrl}</a>
+
+          <button class="bg-clip-text text-transparent bg-gradient-to-r from-gray-50 to-gray-400 underline destination-${destinationPoint.classId} ">${destinationPoint.id}</button>
+
+
       </div>
     `)
   }
