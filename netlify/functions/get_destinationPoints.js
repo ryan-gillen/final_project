@@ -11,7 +11,7 @@ exports.handler = async function(event) {
   let destinationPoints = destinationPointQuery.docs                               // the post documents themselves
   
   // loop through the post documents
-  for (let i=0; i destinationPoints.length; i++) {
+  for (let i=0; i<destinationPoints.length; i++) {
     //let destinationPointId = destinationPoints[i].id                                // the ID for the given post
     let destinationId = destinationPoints[i].destinationId                          
     let destinationImageUrl = destinationPoints[i].imageUrl

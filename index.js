@@ -1,5 +1,5 @@
-let db = firebase.firestore()
-//NEED TO REMOVE when product moves to the backend via exports handler
+//let db = firebase.firestore()
+//NEED TO REMOVE when product moves to the backend via exports handler - AK
 
 firebase.auth().onAuthStateChanged(async function(user) {
   //console.log (user.displayName)

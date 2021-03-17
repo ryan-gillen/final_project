@@ -146,26 +146,35 @@
 
     </div> -->
 
+  <!-- Put the Firebase config here -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script> -->
+
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyDXPYkTmzZCg8QlCOY_1nnSEe-61cy3V0A",
+    authDomain: "kiei-451-final-project.firebaseapp.com",
+    projectId: "kiei-451-final-project",
+    storageBucket: "kiei-451-final-project.appspot.com",
+    messagingSenderId: "141223762459",
+    appId: "1:141223762459:web:de917f4bfaec55705c36be"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="yourtrip.js"></script>
 
 
 
 
-<!--GIVEN FIREBASE CONFIG FORMAT FOR HTML-->
-
-                <!-- Put the Firebase config here -->
-                <!-- The core Firebase JS SDK is always required and must be listed first -->
-                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-                <!-- Firebase Auth -->
-                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-                <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
-
-                <script>
-                    // Your web app's Firebase configuration
-                    var firebaseConfig = {} // replace
-                    // Initialize Firebase
-                    firebase.initializeApp(firebaseConfig);
-                </script>
-                <script src="index.js"></script>
 </body>
 
 </html>
