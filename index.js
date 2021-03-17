@@ -160,7 +160,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
           <img class="object-contain h-80 width-90 rounded-full"
             src="${destinationPoint.imageUrl}">
 
-          <button class="bg-clip-text text-transparent bg-gradient-to-r from-gray-50 to-gray-400 underline destination-${destinationPoint.classId} ">${destinationPoint.id}</button>
+          <button class="bg-clip-text text-gray-800 underline destination-${destinationPoint.classId} ">${destinationPoint.id}</button>
 
 
       </div>
