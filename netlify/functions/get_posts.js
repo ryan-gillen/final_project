@@ -1,11 +1,27 @@
 // /.netlify/functions/get_posts
+console.log('inside get_posts.js')
 let firebase = require('./firebase')
 
 exports.handler = async function(event) {
   let db = firebase.firestore()                             // define a variable so we can use Firestore
   let postsData = []                                        // an empty Array
+
   
+
+  //let destinationPoint = document.getElementsByClassName('#destinationPoint')[0].value
+
+  //let destinationPoint = document.querySelector('.destinationPoint')[0].value
+  //let destinationPoint = document.querySelector('.destinationPoint').value
+
+
+
+
+
+  //console.log(destinationPoint)  
+
+
   let postsQuery = await db.collection('posts')             // posts from Firestore
+                           .where('destinationPoint', '==', destinationPoint)
                            .orderBy('created')              // ordered by created
                            .get()
   let posts = postsQuery.docs                               // the post documents themselves
@@ -39,10 +55,17 @@ exports.handler = async function(event) {
       destinationPoint: postData.destinationPoint,                                     
       imageUrl: postData.imageUrl,   
       url: postData.url,                    
-      username: postData.username,   
+      username: postData.username, 
+      userId: postData.userId  
       // likes: likesQuery.size,                              
       // comments: commentsData                                
     })
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(postsData)
+    }
+
   }
   
 

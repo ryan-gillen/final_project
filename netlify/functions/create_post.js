@@ -1,4 +1,6 @@
 // /.netlify/functions/create_post
+console.log('inside create_post.js')
+
 let firebase = require('./firebase')
 
 exports.handler = async function(event) {
@@ -13,12 +15,13 @@ exports.handler = async function(event) {
   let description = body.description
   let url = body.url
   let imageUrl = body.imageUrl
-  let postDestination = body.postDestination
-  // let destination = body.destination
+  //let postDestination = body.postDestination
+  let destination = body.destinationPoint
 
   
   // console.log(`user: ${userId}`)
   // console.log(`imageUrl: ${imageUrl}`)
+  console.log(destination)
 
   let newPost = {
     userId: userId,
@@ -26,8 +29,7 @@ exports.handler = async function(event) {
     description: description,
     url: url,
     imageUrl: imageUrl, 
-    destinationPoint: postDestination,
-
+    destinationPoint: destination,
     created: firebase.firestore.FieldValue.serverTimestamp()
   }
 
