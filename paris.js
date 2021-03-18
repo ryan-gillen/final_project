@@ -36,7 +36,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
         let postDescription = document.querySelector('#description').value
         let postLink = document.querySelector('#link').value
         let postImageUrl = document.querySelector('#image-url').value
-        let postDestination = document.querySelector('#destination').value
+        let postDestination = 'Paris'
         let response = await fetch('/.netlify/functions/create_post', {
           method: 'POST',
           body: JSON.stringify({
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
             description: postDescription,
             url: postLink,
             imageUrl: postImageUrl,
-            destination: postDestination
+            destinationPoint: postDestination
           })
         })
   

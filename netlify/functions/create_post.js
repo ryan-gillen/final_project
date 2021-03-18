@@ -4,11 +4,16 @@ let firebase = require('./firebase')
 exports.handler = async function(event) {
   let db = firebase.firestore()
   let body = JSON.parse(event.body)
+
+
+
+  
   let userId = body.userId
   let username = body.username
   let description = body.description
   let url = body.url
   let imageUrl = body.imageUrl
+  let postDestination = body.postDestination
   // let destination = body.destination
 
   
@@ -21,8 +26,7 @@ exports.handler = async function(event) {
     description: description,
     url: url,
     imageUrl: imageUrl, 
-    // destinationPoint: destination,
-
+    destinationPoint: postDestination,
 
     created: firebase.firestore.FieldValue.serverTimestamp()
   }

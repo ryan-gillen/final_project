@@ -25,23 +25,6 @@
     <!-- "Template" Itinerary component -->
     <!--WILL TAKE THIS OUT ONCE DATA In FIRESTORE IS CALLED, hard coded for now visualization -AK -->
 
-    <div class="Trip Itinerary Item format font-serif">
-
-        <div id = "template-description" class="p-2">
-            <p>Le Bristol Paris</p>
-         </div>
-         <div id = "template-link" class="p-2">
-            <a href="https://www.oetkercollection.com/fr/hotels/le-bristol-paris">https://www.oetkercollection.com/fr/hotels/le-bristol-paris</a>
-        </div>
-
-        <div id= "template-image" class="p-2">
-            <img src = "https://www.oetkercollection.com/media/42091/le_bristol_paris_facade_2020_1_1879.jpg?anchor=center&mode=crop&quality=85&width=472&height=328&rnd=132576132020000000">
-        </div>
-
-        <div id="template-submitter" class="p-2 italic">
-            <p>Submitted by: Alexandra</p>
-        </div>
-
         <!-- <div class="template-tripvote p-2">
             <form>
                 <button>  👍   </button> <a id="number-upvotes">  5 </a><button>  👎  </button><a id="number-downvotes"> 2 </a>
@@ -53,17 +36,6 @@
 
 <!--FORMATTING FOR FORM-->
 
-<!-- <div>
-    <form class="font-serif" id="destination" value="lHUNg8aRg2VZ5YIRHZSM">  
-        <p> Enter the description of your itinerary here</p>
-        <input type="text" class="border"></input>
-        <p> (Optional) Enter the link to your suggestion here </p>
-            <input type="text" class="border"> </input>
-        <p> (Optional) Enter the link to a photo of your suggestion here </p>
-            <input type="text" class="border"> </input>
-    </form>
-    <button class="text-gray-200 bg-gray-900 m-8" form="destination" type="submit">Submit</button>
-</div> -->
 
 
   <div>
@@ -79,61 +51,12 @@
 </div> 
 
 
-    <!-- <div class="form font-serif" id= "destination" value="lHUNg8aRg2VZ5YIRHZSM">
-
-        <div id="descriptionform" class="m-8">
-            <p> Enter the description of your itinerary here</p>
-            <form>
-                <input type="text" class="border"></input>
-            </form>
-        </div>
-
-        <div id="linkform" class="m-8">
-            <p> (Optional) Enter the link to your suggestion here </p>
-            <form>
-                <input type="text" class="border"> </input>
-            </form>
-        </div>
-
-        <div id="imageform" class="m-8">
-            <p> (Optional) Enter the link to a photo of your suggestion here </p>
-            <form>
-                <input type="text" class="border"> </input>
-               
-            </form>
-        </div>
-
-        <button class="text-gray-200 bg-gray-900 m-8">Submit</button>
-
-    </div> -->
 
     <!-- FORMATTING FOR SUBMITTED Itinerary Idea -->
     <!-- TRIED TO MAKE DYNAMIC and moved it to index.js -AK
     ** WILL NOW NEED TO BE MOVED to yourtrips.js - AK 3.16 -->
 
     <div class="submitted">
-<!-- 
-        <div id="description" class="p-2">
-            <p> ${posts.description} </p>
-         </div>
-
-         <div id="link" class="p-2">
-            <a href = "${posts.url}"> </a>
-        </div>
-
-        <div id="image" class="p-2">
-            <img src ="${posts.imageUrl}" >
-        </div>
-
-        <div id="submitter" class="p-2 italic">
-            <p> ${users.name} </p>
-        </div>
-
-        <div class="tripvote p-2">
-            <form>
-                <button>  </button> <a id="number-upvotes">  </a><button>  </button><a id="number-downvotes"> </a>
-            </form>
-        </div> -->
 
     </div>
 
@@ -161,24 +84,24 @@
 
                 <!-- Put the Firebase config here -->
                 <!-- The core Firebase JS SDK is always required and must be listed first -->
-                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-                <!-- Firebase Auth -->
-                <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-                <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <!-- Firebase Auth -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.7.3/firebase-ui-auth.js"></script>
 
-                <script>
-                    // Your web app's Firebase configuration
-                    var firebaseConfig = 
-                    {apiKey: "AIzaSyDXPYkTmzZCg8QlCOY_1nnSEe-61cy3V0A",
-                    authDomain: "kiei-451-final-project.firebaseapp.com",
-                    projectId: "kiei-451-final-project",
-                    storageBucket: "kiei-451-final-project.appspot.com",
-                    messagingSenderId: "141223762459",
-                    appId: "1:141223762459:web:de917f4bfaec55705c36be"}; // replace
-                    // Initialize Firebase
-                    firebase.initializeApp(firebaseConfig);
-                </script>
-                <script src="yourtrip.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = 
+        {apiKey: "AIzaSyDXPYkTmzZCg8QlCOY_1nnSEe-61cy3V0A",
+        authDomain: "kiei-451-final-project.firebaseapp.com",
+        projectId: "kiei-451-final-project",
+        storageBucket: "kiei-451-final-project.appspot.com",
+        messagingSenderId: "141223762459",
+        appId: "1:141223762459:web:de917f4bfaec55705c36be"}; // replace
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="yourtrip.js"></script>
 </body>
 
 </html>
