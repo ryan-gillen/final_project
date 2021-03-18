@@ -50,11 +50,12 @@ firebase.auth().onAuthStateChanged(async function(user) {
       // Listen for the form submit and create/render the new post
 
       document.querySelector('form').addEventListener('submit', async function(event) {
+        console.log("clicked")
         event.preventDefault()
         let postUsername = user.displayName
-        let postDescription = document.querySelector('#descriptionform').value
-        let postLink = document.querySelector('#linkform').value
-        let postImageUrl = document.querySelector('#imageform').value
+        let postDescription = document.querySelector('#description').value
+        let postLink = document.querySelector('#link').value
+        let postImageUrl = document.querySelector('#image-url').value
         let postDestination = document.querySelector('#destination').value
         let response = await fetch('/.netlify/functions/create_post', {
           method: 'POST',
@@ -69,9 +70,9 @@ firebase.auth().onAuthStateChanged(async function(user) {
         })
   
         let post = await response.json()
-        document.querySelector('#descriptionform').value = '' 
-        document.querySelector('#linkform').value = '' 
-        document.querySelector('#imageform').value = '' // clear the image url field
+        document.querySelector('#description').value = '' 
+        document.querySelector('#link').value = '' 
+        document.querySelector('#image-url').value = '' // clear the image url field
   
         renderPost(post)
       })
@@ -177,50 +178,50 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
   //RG (3/15/21): 
 
+//180-223
+//   // listen for the like button on this post
+//   let likeButton = document.querySelector(`.post-${postId} .like-button`)
+//   likeButton.addEventListener('click', async function(event) {
+//     event.preventDefault()
+//     console.log(`post ${postId} like button clicked!`)
+//     let currentUserId = firebase.auth().currentUser.uid
 
-  // listen for the like button on this post
-  let likeButton = document.querySelector(`.post-${postId} .like-button`)
-  likeButton.addEventListener('click', async function(event) {
-    event.preventDefault()
-    console.log(`post ${postId} like button clicked!`)
-    let currentUserId = firebase.auth().currentUser.uid
+//     let response = await fetch('/.netlify/functions/like', {
+//       method: 'POST',
+//       body: JSON.stringify({
+//         postId: postId,
+//         userId: currentUserId
+//       })
+//     })
+//     if (response.ok) {
+//       let existingNumberOfLikes = document.querySelector(`.post-${postId} .likes`).innerHTML
+//       let newNumberOfLikes = parseInt(existingNumberOfLikes) + 1
+//       document.querySelector(`.post-${postId} .likes`).innerHTML = newNumberOfLikes
+//     }
+//   })
 
-    let response = await fetch('/.netlify/functions/like', {
-      method: 'POST',
-      body: JSON.stringify({
-        postId: postId,
-        userId: currentUserId
-      })
-    })
-    if (response.ok) {
-      let existingNumberOfLikes = document.querySelector(`.post-${postId} .likes`).innerHTML
-      let newNumberOfLikes = parseInt(existingNumberOfLikes) + 1
-      document.querySelector(`.post-${postId} .likes`).innerHTML = newNumberOfLikes
-    }
-  })
-
-//listen for unlike button on post 
-  let unlikeButton = document.querySelector(`.posts-${postId} .unlike-button`)
-  unlikeButton.addEventListener('click', async function(event) {
-    event.preventDefault()
-    console.log(`post ${postId} like button clicked!`)
-    let currentUserId = firebase.auth().currentUser.uid
+// //listen for unlike button on post 
+//   let unlikeButton = document.querySelector(`.posts-${postId} .unlike-button`)
+//   unlikeButton.addEventListener('click', async function(event) {
+//     event.preventDefault()
+//     console.log(`post ${postId} like button clicked!`)
+//     let currentUserId = firebase.auth().currentUser.uid
 
 
-    let response = await fetch('/.netlify/functions/like', {
-      method: 'POST',
-      body: JSON.stringify({
-        postId: postId,
-        userId: currentUserId
-      })
+//     let response = await fetch('/.netlify/functions/like', {
+//       method: 'POST',
+//       body: JSON.stringify({
+//         postId: postId,
+//         userId: currentUserId
+//       })
 
-    })
-    if (response.ok) {
-      let existingNumberOfUnLikes = document.querySelector(`.post-${postId} .unlikes`).innerHTML
-      let newNumberOfUnLikes = parseInt(existingNumberOfUnLikes) + 1
-      document.querySelector(`.post-${postId} .unlikes`).innerHTML = newNumberOfUnLikes
-    }
-  })
+//     })
+//     if (response.ok) {
+//       let existingNumberOfUnLikes = document.querySelector(`.post-${postId} .unlikes`).innerHTML
+//       let newNumberOfUnLikes = parseInt(existingNumberOfUnLikes) + 1
+//       document.querySelector(`.post-${postId} .unlikes`).innerHTML = newNumberOfUnLikes
+//     }
+//   })
 
 
 //Reference from Kelloogram on listen for the like button on this post

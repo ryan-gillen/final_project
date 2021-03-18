@@ -30,7 +30,7 @@ exports.handler = async function(event) {
     //     username: comment.username,                         // the author of the comment
     //     text: comment.text                                  // the comment text
     //   })
-    }
+    
 
     // add a new Object of our own creation to the postsData Array
     postsData.push({
@@ -43,7 +43,7 @@ exports.handler = async function(event) {
       // likes: likesQuery.size,                              
       // comments: commentsData                                
     })
-  
+  }
   
 
 

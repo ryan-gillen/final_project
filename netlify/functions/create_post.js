@@ -9,25 +9,27 @@ exports.handler = async function(event) {
   let description = body.description
   let url = body.url
   let imageUrl = body.imageUrl
-  let destination = body.destination
+  // let destination = body.destination
 
   
-  console.log(`user: ${userId}`)
-  console.log(`imageUrl: ${imageUrl}`)
+  // console.log(`user: ${userId}`)
+  // console.log(`imageUrl: ${imageUrl}`)
 
-  let newPost = { 
+  let newPost = {
     userId: userId,
     username: username, 
     description: description,
     url: url,
     imageUrl: imageUrl, 
-    destinationPoint: destination,
+    // destinationPoint: destination,
+
+
     created: firebase.firestore.FieldValue.serverTimestamp()
   }
 
   let docRef = await db.collection('posts').add(newPost)
   newPost.id = docRef.id
-  newPost.likes = 0
+  // // newPost.likes = 0
 
   return {
     statusCode: 200,
