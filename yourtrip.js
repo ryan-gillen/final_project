@@ -146,15 +146,16 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
   async function renderPost(post) {
   let postId = post.id
+  console.log(post.url)
   document.querySelector('.submitted').insertAdjacentHTML('beforeend', `
     <div class="post-${postId}">
 
-    <div id="destination" class="p-2-
+    <div id="destination" class="p-2">
       <p> ${post.description} </p>
     </div>
 
     <div id="link" class="p-2">
-      <a href = "${post.url}"> </a>
+      <a href = "${post.url}"> ${post.url}</a>
     </div>
 
     <div id="image" class="p-2">
