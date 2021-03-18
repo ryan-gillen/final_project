@@ -17,8 +17,7 @@ exports.handler = async function(event) {
   let destination = body.destinationPoint
 
   
-  // console.log(`user: ${userId}`)
-  // console.log(`imageUrl: ${imageUrl}`)
+ 
   console.log(destination)
 
   let newPost = {
