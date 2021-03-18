@@ -29,13 +29,6 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
       // Listen for the form submit and create/render the new post
 
-      //let destinationValue = document.querySelector('.destinationPoint').value
-
-      //let destinationValue = document.getElementsByClassName('.destinationPoint')[0].value
-
-      //let destinationValue = document.querySelector('.destinationPoint').getAttribute('destinationPoint')
-
-
       document.querySelector('form').addEventListener('submit', async function(event) {
         console.log("clicked")
         event.preventDefault()
@@ -68,40 +61,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
     //FROM KELLOGRAM - MADE NO UPDATES 
 
-    
-
-    
-    
-    // let destinationValue = document.querySelector('.destinationPoint').value
-    // console.log(destinationValue)
-
-    console.log('tyring to get destinationValue')
-    let destinationValue = document.querySelector('#Paris')
-    let attribute = destinationValue.getAttribute('id')  
-    console.log(attribute)
-
-    //if(attribute == 'Puerto-Escondido') {}
-
-    // let response = await fetch('/.netlify/functions/create_post', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     userId: user.uid,
-    //     username: postUsername,
-    //     description: postDescription,
-    //     url: postLink,
-    //     imageUrl: postImageUrl,
-    //     destinationPoint: postDestination
-    //   })
-    // })
-
-    let response = await fetch('/.netlify/functions/get_posts', {
-      method: 'POST', 
-      body: JSON.stringify({
-        destinationPoint: attribute
-
-      })
-    })
-
+    let response = await fetch('/.netlify/functions/get_posts')
     let posts = await response.json()
     for (let i=0; i<posts.length; i++) {
       let post = posts[i]
