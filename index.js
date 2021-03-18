@@ -107,6 +107,7 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
         if (destinationPoint.id == 'Paris') { 
           document.location.href = 'paris.html'
+          
 
         } else if (destinationPoint.id == 'Puerto Escondido') {
           document.location.href = 'puertoescondido.html'

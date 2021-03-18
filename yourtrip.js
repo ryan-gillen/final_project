@@ -49,12 +49,13 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
       // Listen for the form submit and create/render the new post
 
-      document.querySelector('.form').addEventListener('submit', async function(event) {
+      document.querySelector('form').addEventListener('submit', async function(event) {
         event.preventDefault()
         let postUsername = user.displayName
         let postDescription = document.querySelector('#descriptionform').value
         let postLink = document.querySelector('#linkform').value
         let postImageUrl = document.querySelector('#imageform').value
+        let postDestination = document.querySelector('#destination').value
         let response = await fetch('/.netlify/functions/create_post', {
           method: 'POST',
           body: JSON.stringify({
@@ -62,7 +63,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
             username: postUsername,
             description: postDescription,
             url: postLink,
-            imageUrl: postImageUrl
+            imageUrl: postImageUrl,
+            destination: postDestination
           })
         })
   
@@ -147,19 +149,19 @@ firebase.auth().onAuthStateChanged(async function(user) {
     <div class="post-${postId}">
 
     <div id="destination" class="p-2-
-      <p> ${posts.description} </p>
+      <p> ${post.description} </p>
     </div>
 
     <div id="link" class="p-2">
-      <a href = "${posts.url}"> </a>
+      <a href = "${post.url}"> </a>
     </div>
 
     <div id="image" class="p-2">
-      <img src ="${posts.imageUrl}" >
+      <img src ="${post.imageUrl}" >
     </div>
 
     <div id="submitter" class="p-2 italic">
-      <p> ${posts.username} </p>
+      <p> ${post.username} </p>
     </div>
 
     <div class="tripvote p-2">
@@ -170,6 +172,8 @@ firebase.auth().onAuthStateChanged(async function(user) {
     
     </div>`)
 
+
+    
 
   //RG (3/15/21): 
 

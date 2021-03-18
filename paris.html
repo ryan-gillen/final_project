@@ -18,6 +18,8 @@
     <div class="page header text-lg font-monospace text-gray-200 p-2 bg-gray-800"> 
         <h>Trip Itinerary Ideas for Paris</h> <!--enter code for trip name-->
     </div>
+
+
     
 
     <!-- "Template" Itinerary component -->
@@ -51,23 +53,23 @@
 
 <!--FORMATTING FOR FORM-->
 
-    <div class="form font-serif">
+    <div class="form font-serif" id= "destination" value="lHUNg8aRg2VZ5YIRHZSM">
 
-        <div class="descriptionform m-8">
+        <div id="descriptionform" class="m-8">
             <p> Enter the description of your itinerary here</p>
             <form>
                 <input type="text" class="border"></input>
             </form>
         </div>
 
-        <div class="linkform m-8">
+        <div id="linkform" class="m-8">
             <p> (Optional) Enter the link to your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
             </form>
         </div>
 
-        <div class="imageform m-8">
+        <div id="imageform" class="m-8">
             <p> (Optional) Enter the link to a photo of your suggestion here </p>
             <form>
                 <input type="text" class="border"> </input>
@@ -82,7 +84,7 @@
     <!-- TRIED TO MAKE DYNAMIC and moved it to index.js -AK
     ** WILL NOW NEED TO BE MOVED to yourtrips.js - AK 3.16 -->
 
-    <div class="Submitted Itinerary Ideas Format">
+    <div class="submitted">
 <!-- 
         <div id="description" class="p-2">
             <p> ${posts.description} </p>
@@ -139,11 +141,17 @@
 
                 <script>
                     // Your web app's Firebase configuration
-                    var firebaseConfig = {} // replace
+                    var firebaseConfig = 
+                    {apiKey: "AIzaSyDXPYkTmzZCg8QlCOY_1nnSEe-61cy3V0A",
+                    authDomain: "kiei-451-final-project.firebaseapp.com",
+                    projectId: "kiei-451-final-project",
+                    storageBucket: "kiei-451-final-project.appspot.com",
+                    messagingSenderId: "141223762459",
+                    appId: "1:141223762459:web:de917f4bfaec55705c36be"}; // replace
                     // Initialize Firebase
                     firebase.initializeApp(firebaseConfig);
                 </script>
-                <script src="index.js"></script>
+                <script src="yourtrip.js"></script>
 </body>
 
 </html>
