@@ -82,7 +82,26 @@ firebase.auth().onAuthStateChanged(async function(user) {
 
     //if(attribute == 'Puerto-Escondido') {}
 
-    let response = await fetch('/.netlify/functions/get_posts')
+    // let response = await fetch('/.netlify/functions/create_post', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     userId: user.uid,
+    //     username: postUsername,
+    //     description: postDescription,
+    //     url: postLink,
+    //     imageUrl: postImageUrl,
+    //     destinationPoint: postDestination
+    //   })
+    // })
+
+    let response = await fetch('/.netlify/functions/get_posts', {
+      method: 'POST', 
+      body: JSON.stringify({
+        destinationPoint: attribute
+
+      })
+    })
+
     let posts = await response.json()
     for (let i=0; i<posts.length; i++) {
       let post = posts[i]
