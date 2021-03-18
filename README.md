@@ -23,3 +23,10 @@ Some ideas: Initial stages could include things like date selection based on sch
 	- have that user ID shown next to the item on the list, so that everyone can see who added it
 	- then after an item is on the list, members can vote on it
 - For each list item added, allow the ability to add a URL for other members to get more information on that idea
+
+
+
+
+
+*****Public URL*****
+https://laughing-wozniak-a6ddc4.netlify.app/index.html
